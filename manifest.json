@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "Trello Dependencies Addon",
+  "description": "Chrome Extension to track and manage dependencies for trello.com",
+  "version": "0.1",
+
+  "background": {
+    "page": "background.html",
+    "persitent": false
+  },
+
+  "page_action": {
+    "default_icon": "icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://trello.com/*"],
+      "js": [
+        "lib/jquery-2.1.1.min.js",
+        "scripts/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "web_accessible_resources": [
+    "settings/index.html"
+  ],
+
+  "options_page": "settings/index.html"
+}
